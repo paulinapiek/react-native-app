@@ -1,0 +1,96 @@
+apply plugin: "com.android.application"
+apply plugin: "org.jetbrains.kotlin.android"
+apply plugin: "com.facebook.react"
+apply plugin: 'com.google.gms.google-services'
+
+
+react {
+    /* Folders */
+    // root = file("../../")
+    // reactNativeDir = file("../../node_modules/react-native")
+    // codegenDir = file("../../node_modules/@react-native/codegen")
+    // cliFile = file("../../node_modules/react-native/cli.js")
+
+    /* Variants */
+    // debuggableVariants = ["liteDebug", "prodDebug"]
+
+    /* Bundling */
+    // nodeExecutableAndArgs = ["node"]
+    // bundleCommand = "ram-bundle"
+    // bundleConfig = file(../rn-cli.config.js)
+    // bundleAssetName = "MyApplication.android.bundle"
+    // entryFile = file("../js/MyApplication.android.js")
+    // extraPackagerArgs = []
+
+    /* Hermes Commands */
+    // hermesCommand = "$rootDir/my-custom-hermesc/bin/hermesc"
+    // hermesFlags = ["-O", "-output-source-map"]
+
+    /* Autolinking */
+    autolinkLibrariesWithApp()
+}
+
+/**
+ * Set this to true to Run Proguard on Release builds to minify the Java bytecode.
+ */
+def enableProguardInReleaseBuilds = false
+
+/**
+ * The preferred build flavor of JavaScriptCore (JSC)
+ */
+def jscFlavor = 'io.github.react-native-community:jsc-android:2026004.+'
+
+android {
+    ndkVersion rootProject.ext.ndkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdk rootProject.ext.compileSdkVersion
+
+    namespace "com.ewsei"
+    defaultConfig {
+        applicationId "com.ewsei"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+    }
+    signingConfigs {
+        debug {
+            storeFile file('debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+    }
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+        }
+        release {
+            signingConfig signingConfigs.debug 
+            minifyEnabled enableProguardInReleaseBuilds
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
+    }
+    packagingOptions {
+        pickFirst '**/libjsc.so'
+        pickFirst '**/libc++_shared.so'
+    }
+}
+
+dependencies {
+    // The version of react-native is set by the React Native Gradle Plugin
+    implementation("com.facebook.react:react-android")
+    implementation platform('com.google.firebase:firebase-bom:33.1.4')
+
+    implementation 'com.google.firebase:firebase-auth'     //  ( Firebase Authentication)
+    implementation 'com.google.firebase:firebase-firestore' // ( Cloud Firestore)
+
+
+    if (hermesEnabled.toBoolean()) {
+        implementation("com.facebook.react:hermes-android")
+    } else {
+        implementation jscFlavor
+    }
+}
+
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"

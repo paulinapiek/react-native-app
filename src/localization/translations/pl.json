@@ -1,0 +1,129 @@
+{
+  "common": {
+    "loading": "Ładowanie...",
+    "error": "Błąd",
+    "success": "Sukces",
+    "ok": "OK",
+    "cancel": "Anuluj"
+  },
+  "auth": {
+    "loginTitle": "Logowanie eWSEI",
+    "emailPlaceholder": "Email (@microsoft.wsei.edu.pl)",
+    "passwordPlaceholder": "Hasło",
+    "loginButton": "Zaloguj się",
+    "loggingInButton": "Logowanie...",
+    "noAccount": "Nie masz konta? Zarejestruj się",
+    "forgotPassword": "Zapomniałeś hasła?",
+    "registrationTitle": "Rejestracja do eWSEI",
+    "firstNamePlaceholder": "Imię",
+    "lastNamePlaceholder": "Nazwisko",
+    "albumNumberPlaceholder": "Numer albumu",
+    "passwordMinCharsPlaceholder": "Hasło (min. 6 znaków)",
+    "confirmPasswordPlaceholder": "Potwierdź hasło",
+    "registerButton": "Zarejestruj się",
+    "registeringButton": "Rejestrowanie...",
+    "haveAccount": "Masz już konto? Zaloguj się",
+    "errorAllFieldsRequired": "Wszystkie pola są wymagane.",
+    "errorPasswordsMismatch": "Hasła nie są takie same.",
+    "errorInvalidDomain": "Rejestracja jest możliwa tylko dla adresów email w domenie @microsoft.wsei.edu.pl.",
+    "errorLoginGeneric": "Wystąpił nieoczekiwany błąd logowania.",
+    "registrationSuccess": "Konto zostało utworzone! Możesz się teraz zalogować.",
+    "errorRegistrationGeneric": "Wystąpił nieoczekiwany błąd rejestracji."
+  },
+  "navigation": {
+    "tabStart": "Start",
+    "tabStudentId": "e-Legitymacja",
+    "tabMore": "Więcej",
+    "headerAccountSettings": "Ustawienia Konta",
+    "headerAppSettings": "Ustawienia Aplikacji",
+    "headerHelpContact": "Pomoc i Kontakt",
+    "headerAboutAuthors": "O Autorach",
+    "headerUserProfile": "Mój Profil"
+  },
+  "homeScreen": {
+    "title": "Home",
+    "welcomeMessage": "Witamy w Wirtualnym Dziekanacie"
+  },
+  "studentIdScreen": {
+    "title": "LEGITYMACJA",
+    "dataPlaceholder": "Tutaj będą dane legitymacji"
+  },
+  "moreScreen": {
+    "accountSettings": "Ustawienia Konta",
+    "appSettings": "Ustawienia Aplikacji",
+    "helpContact": "Pomoc i Kontakt",
+    "aboutAuthors": "O Autorach"
+  },
+  "accountSettings": {
+    "title": "Ustawienia Konta",
+    "editProfile": "Profil użytkownika",
+    "deleteAccount": "Usuń konto",
+    "logout": "Wyloguj się",
+    "logoutConfirmTitle": "Wylogowanie",
+    "logoutConfirmMessage": "Czy na pewno chcesz się wylogować?",
+    "deleteAccountConfirmTitle": "Usuwanie konta",
+    "deleteAccountConfirmMessage": "Czy na pewno chcesz trwale usunąć swoje konto? Tej operacji nie można cofnąć.",
+    "deleteAccountSuccess": "Konto zostało usunięte.",
+    "deleteAccountError": "Nie udało się usunąć konta."
+  },
+   "userProfile": {
+    "screenTitle": "Mój Profil",
+    "addProfilePhoto": "Dodaj zdjęcie profilowe",
+    "firstName": "Imię",
+    "firstNamePlaceholder": "Wpisz imię",
+    "lastName": "Nazwisko",
+    "lastNamePlaceholder": "Wpisz nazwisko",
+    "albumNumber": "Numer albumu",
+    "albumNumberPlaceholder": "Wpisz numer albumu",
+    "studyYear": "Rok studiów",
+    "studyYearPlaceholder": "Wpisz rok studiów (np. 1, 2, 3)",
+    "studyMode": "Tryb studiów",
+    "studyModePlaceholder": "Wpisz tryb studiów (np. Stacjonarny, Niestacjonarny)",
+    "studyModule": "Moduł studiów",
+    "studyModulePlaceholder": "Wpisz moduł studiów (jeśli dotyczy)",
+    "birthDate": "Data urodzenia",
+    "birthDatePlaceholder": "Wpisz datę urodzenia (np. DD.MM.RRRR)",
+    "saveButton": "Zapisz Zmiany",
+    "editButton": "Edytuj Profil",
+    "savingButton": "Zapisywanie...",
+    "saveSuccess": "Profil został zaktualizowany.",
+    "saveError": "Nie udało się zapisać zmian.",
+    "photoPickerError": "Błąd podczas wyboru zdjęcia."
+  },
+  "appSettings": {
+    "loadingSettings": "Ładowanie ustawień...",
+    "themeTitle": "Motyw Aplikacji",
+    "darkMode": "Tryb Ciemny",
+    "themePreferenceTitle": "Preferencje Motywu",
+    "themeValues": {
+      "light": "Jasny",
+      "dark": "Ciemny",
+      "system": "Systemowy"
+    },
+    "languageTitle": "Język",
+    "languagePolish": "Polski",
+    "languageEnglish": "Angielski",
+    "errorSavingTheme": "Nie udało się zapisać preferencji motywu.",
+    "errorSavingLanguage": "Nie udało się zmienić języka."
+  },
+  "helpContact": {
+    "screenTitle": "Pomoc i Kontakt",
+    "cardTitle": "Informacje Kontaktowe",
+    "address": "ul. Św. Filipa 17, 31-150 Kraków, Polska",
+    "phoneCall": "Zadzwoń: +48 12 431 18 90",
+    "emailWrite": "Napisz: kancelaria@wsei.edu.pl",
+    "goToGoogleMaps": "Przejdź do Google Maps",
+    "errorOpeningLink": "Nie można otworzyć tego URL: {{url}}",
+    "errorGenericLink": "Wystąpił problem podczas próby otwarcia linku."
+  },
+  "aboutAuthors": {
+    "header": "Autor Aplikacji",
+    "nameLabel": "Imię i Nazwisko:",
+    "albumLabel": "Numer Albumu:",
+    "description": "Aplikacja \"eWSEI\" została stworzona w ramach projektu zaliczeniowego na Wyższej Szkole Ekonomii i Informatyki w Krakowie."
+  },
+
+  "splash": {
+    "appName": "eWSEI"
+  }
+}

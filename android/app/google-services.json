@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "933044862233",
+    "project_id": "ewsei-27e2e",
+    "storage_bucket": "ewsei-27e2e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:933044862233:android:985e03f9ac76fa0f489988",
+        "android_client_info": {
+          "package_name": "com.ewsei"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDN8LZ7zYBe7HU3lTf50tNY1sqjFLTxKao"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

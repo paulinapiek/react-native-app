@@ -1,0 +1,127 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "ok": "OK",
+    "cancel": "Cancel"
+  },
+  "auth": {
+    "loginTitle": "eWSEI Login",
+    "emailPlaceholder": "Email (@microsoft.wsei.edu.pl)",
+    "passwordPlaceholder": "Password",
+    "loginButton": "Log In",
+    "loggingInButton": "Logging in...",
+    "noAccount": "No account? Sign up",
+    "forgotPassword": "Forgot password?",
+    "registrationTitle": "eWSEI Registration",
+    "firstNamePlaceholder": "First Name",
+    "lastNamePlaceholder": "Last Name",
+    "albumNumberPlaceholder": "Album Number",
+    "passwordMinCharsPlaceholder": "Password (min. 6 characters)",
+    "confirmPasswordPlaceholder": "Confirm Password",
+    "registerButton": "Sign Up",
+    "registeringButton": "Signing up...",
+    "haveAccount": "Already have an account? Log in",
+    "errorAllFieldsRequired": "All fields are required.",
+    "errorPasswordsMismatch": "Passwords do not match.",
+    "errorInvalidDomain": "Registration is only possible for email addresses in the @microsoft.wsei.edu.pl domain.",
+    "errorLoginGeneric": "An unexpected login error occurred.",
+    "registrationSuccess": "Account created successfully! You can now log in.",
+    "errorRegistrationGeneric": "An unexpected registration error occurred."
+  },
+  "navigation": {
+    "tabStart": "Start",
+    "tabStudentId": "e-ID Card",
+    "tabMore": "More",
+    "headerAccountSettings": "Account Settings",
+    "headerAppSettings": "App Settings",
+    "headerHelpContact": "Help & Contact",
+    "headerAboutAuthors": "About Authors",
+    "headerUserProfile": "My Profile"
+  },
+  "homeScreen": {
+    "title": "START",
+    "welcomeMessage": "Welcome to the Virtual Dean's Office"
+  },
+  "studentIdScreen": {
+    "title": "ID CARD",
+    "dataPlaceholder": "ID card data will be here"
+  },
+  "moreScreen": {
+    "accountSettings": "Account Settings",
+    "appSettings": "App Settings",
+    "helpContact": "Help & Contact",
+    "aboutAuthors": "About Authors"
+  },
+   "accountSettings": {
+    "title": "Account Settings",
+    "editProfile": "User Profile",
+    "deleteAccount": "Delete Account",
+    "logout": "Log Out",
+    "logoutConfirmTitle": "Log Out",
+    "logoutConfirmMessage": "Are you sure you want to log out?",
+    "deleteAccountConfirmTitle": "Delete Account",
+    "deleteAccountConfirmMessage": "Are you sure you want to permanently delete your account? This action cannot be undone.",
+    "deleteAccountSuccess": "Account deleted successfully.",
+    "deleteAccountError": "Failed to delete account."
+  },
+  "appSettings": {
+    "loadingSettings": "Loading settings...",
+    "themeTitle": "Application Theme",
+    "darkMode": "Dark Mode",
+    "themePreferenceTitle": "Theme Preference",
+    "themeValues": {
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    },
+    "languageTitle": "Language",
+    "languagePolish": "Polish",
+    "languageEnglish": "English",
+    "errorSavingTheme": "Failed to save theme preference.",
+    "errorSavingLanguage": "Failed to change language."
+  },
+  "helpContact": {
+    "cardTitle": "Contact Information",
+    "address": "ul. Św. Filipa 17, 31-150 Krakow, Poland",
+    "phoneCall": "Call: +48 12 431 18 90",
+    "emailWrite": "Email: kancelaria@wsei.edu.pl",
+    "goToGoogleMaps": "Go to Google Maps",
+    "errorOpeningLink": "Cannot open this URL: {{url}}",
+    "errorGenericLink": "An error occurred while trying to open the link."
+  },
+  "aboutAuthors": {
+    "header": "Application Author",
+    "nameLabel": "Name and Surname:",
+    "albumLabel": "Album Number:",
+    "description": "The \"eWSEI\" application was created as part of a credit project at the University of Economics and Computer Science in Krakow."
+  },
+    "userProfile": {
+    "screenTitle": "My Profile",
+    "addProfilePhoto": "Add profile photo",
+    "firstName": "First Name",
+    "firstNamePlaceholder": "Enter first name",
+    "lastName": "Last Name",
+    "lastNamePlaceholder": "Enter last name",
+    "albumNumber": "Album Number",
+    "albumNumberPlaceholder": "Enter album number",
+    "studyYear": "Year of Study",
+    "studyYearPlaceholder": "Enter year of study (e.g., 1, 2, 3)",
+    "studyMode": "Mode of Study",
+    "studyModePlaceholder": "Enter mode of study (e.g., Full-time, Part-time)",
+    "studyModule": "Study Module",
+    "studyModulePlaceholder": "Enter study module (if applicable)",
+    "birthDate": "Date of Birth",
+    "birthDatePlaceholder": "Enter date of birth (e.g., DD.MM.YYYY)",
+    "saveButton": "Save Changes",
+    "editButton": "Edit Profile",
+    "savingButton": "Saving...",
+    "saveSuccess": "Profile updated successfully.",
+    "saveError": "Failed to save changes.",
+    "photoPickerError": "Error picking photo."
+  },
+  "splash": {
+    "appName": "eWSEI"
+  }
+}
