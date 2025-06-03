@@ -4,7 +4,8 @@
     "error": "Błąd",
     "success": "Sukces",
     "ok": "OK",
-    "cancel": "Anuluj"
+    "cancel": "Anuluj",
+    "info": "Informacja"
   },
   "auth": {
     "loginTitle": "Logowanie eWSEI",
@@ -28,7 +29,10 @@
     "errorInvalidDomain": "Rejestracja jest możliwa tylko dla adresów email w domenie @microsoft.wsei.edu.pl.",
     "errorLoginGeneric": "Wystąpił nieoczekiwany błąd logowania.",
     "registrationSuccess": "Konto zostało utworzone! Możesz się teraz zalogować.",
-    "errorRegistrationGeneric": "Wystąpił nieoczekiwany błąd rejestracji."
+    "errorRegistrationGeneric": "Wystąpił nieoczekiwany błąd rejestracji.",
+     "errorEmailInUse": "Ten adres email jest już używany.",
+    "errorWeakPassword": "Hasło jest zbyt słabe.",
+    "errorInvalidEmail": "Nieprawidłowy format adresu email."
   },
   "navigation": {
     "tabStart": "Start",
@@ -41,12 +45,15 @@
     "headerUserProfile": "Mój Profil"
   },
   "homeScreen": {
-    "title": "Home",
-    "welcomeMessage": "Witamy w Wirtualnym Dziekanacie"
-  },
-  "studentIdScreen": {
-    "title": "LEGITYMACJA",
-    "dataPlaceholder": "Tutaj będą dane legitymacji"
+    "welcome": "Witaj",
+    "defaultName": "Studencie",
+    "studentInfo": "Informacje o studencie",
+    "albumNumber": "Nr albumu",
+    "studyYear": "Rok studiów",
+    "studyMode": "Tryb studiów",
+    "notProvided": "nie podano",
+    "schedule": "Plan zajęć",
+    "scheduleSubtitle": "Informatyka Stosowana - Studia Dzienne"
   },
   "moreScreen": {
     "accountSettings": "Ustawienia Konta",
@@ -57,6 +64,7 @@
   "accountSettings": {
     "title": "Ustawienia Konta",
     "editProfile": "Profil użytkownika",
+    "changePassword": "Zmień hasło",
     "deleteAccount": "Usuń konto",
     "logout": "Wyloguj się",
     "logoutConfirmTitle": "Wylogowanie",
@@ -64,27 +72,40 @@
     "deleteAccountConfirmTitle": "Usuwanie konta",
     "deleteAccountConfirmMessage": "Czy na pewno chcesz trwale usunąć swoje konto? Tej operacji nie można cofnąć.",
     "deleteAccountSuccess": "Konto zostało usunięte.",
-    "deleteAccountError": "Nie udało się usunąć konta."
+    "deleteAccountError": "Nie udało się usunąć konta.",
+    "logoutError": "Wystąpił błąd podczas wylogowywania."
   },
-   "userProfile": {
+  "userProfile": {
     "screenTitle": "Mój Profil",
+    "editButton": "Edytuj Profil",
+    "pleaseComplete": "uzupełnij*",
+    "firstName": "Imię",
+    "lastName": "Nazwisko",
+    "albumNumber": "Numer albumu",
+    "email": "E-mail",
+    "studyYear": "Rok studiów",
+    "studyMode": "Tryb studiów",
+    "studyModule": "Moduł studiów",
+    "birthDate": "Data urodzenia"
+  },
+  "editProfile": {
+    "screenTitle": "Edytuj Profil",
     "addProfilePhoto": "Dodaj zdjęcie profilowe",
     "firstName": "Imię",
-    "firstNamePlaceholder": "Wpisz imię",
     "lastName": "Nazwisko",
-    "lastNamePlaceholder": "Wpisz nazwisko",
     "albumNumber": "Numer albumu",
-    "albumNumberPlaceholder": "Wpisz numer albumu",
     "studyYear": "Rok studiów",
-    "studyYearPlaceholder": "Wpisz rok studiów (np. 1, 2, 3)",
     "studyMode": "Tryb studiów",
-    "studyModePlaceholder": "Wpisz tryb studiów (np. Stacjonarny, Niestacjonarny)",
     "studyModule": "Moduł studiów",
-    "studyModulePlaceholder": "Wpisz moduł studiów (jeśli dotyczy)",
     "birthDate": "Data urodzenia",
+    "firstNamePlaceholder": "Wpisz imię",
+    "lastNamePlaceholder": "Wpisz nazwisko",
+    "albumNumberPlaceholder": "Wpisz numer albumu",
+    "studyYearPlaceholder": "Wpisz rok studiów (np. 1, 2, 3)",
+    "studyModePlaceholder": "Wpisz tryb studiów (np. Stacjonarny, Niestacjonarny)",
+    "studyModulePlaceholder": "Wpisz moduł studiów (jeśli dotyczy)",
     "birthDatePlaceholder": "Wpisz datę urodzenia (np. DD.MM.RRRR)",
     "saveButton": "Zapisz Zmiany",
-    "editButton": "Edytuj Profil",
     "savingButton": "Zapisywanie...",
     "saveSuccess": "Profil został zaktualizowany.",
     "saveError": "Nie udało się zapisać zmian.",
@@ -104,7 +125,8 @@
     "languagePolish": "Polski",
     "languageEnglish": "Angielski",
     "errorSavingTheme": "Nie udało się zapisać preferencji motywu.",
-    "errorSavingLanguage": "Nie udało się zmienić języka."
+    "errorSavingLanguage": "Nie udało się zmienić języka.",
+    "errorLoadingTheme": "Nie udało się załadować ustawień motywu."
   },
   "helpContact": {
     "screenTitle": "Pomoc i Kontakt",
@@ -122,8 +144,66 @@
     "albumLabel": "Numer Albumu:",
     "description": "Aplikacja \"eWSEI\" została stworzona w ramach projektu zaliczeniowego na Wyższej Szkole Ekonomii i Informatyki w Krakowie."
   },
-
-  "splash": {
-    "appName": "eWSEI"
+  "changePassword": {
+    "screenTitle": "Zmień hasło",
+    "description": "Aby zmienić hasło, najpierw potwierdź swoje obecne hasło, a następnie podaj nowe.",
+    "currentPassword": "Obecne hasło",
+    "currentPasswordPlaceholder": "Wprowadź obecne hasło",
+    "currentPasswordRequired": "Podaj obecne hasło",
+    "newPassword": "Nowe hasło",
+    "newPasswordPlaceholder": "Wprowadź nowe hasło",
+    "newPasswordRequired": "Podaj nowe hasło",
+    "confirmPassword": "Potwierdź nowe hasło",
+    "confirmPasswordPlaceholder": "Wprowadź ponownie nowe hasło",
+    "passwordTooShort": "Nowe hasło musi mieć co najmniej 6 znaków",
+    "passwordsDoNotMatch": "Nowe hasła nie są identyczne",
+    "changing": "Zmienianie...",
+    "changeButton": "Zmień hasło",
+    "passwordChanged": "Hasło zostało pomyślnie zmienione",
+    "changeError": "Nie udało się zmienić hasła",
+    "wrongCurrentPassword": "Obecne hasło jest niepoprawne",
+    "weakPassword": "Nowe hasło jest zbyt słabe"
+  },
+  "deleteAccount": {
+    "screenTitle": "Usuń konto",
+    "warning": "Ostrzeżenie",
+    "warningMessage": "Usunięcie konta jest operacją nieodwracalną. Wszystkie Twoje dane, w tym profil studenta, preferencje i historia aktywności zostaną trwale usunięte.",
+    "description": "Aby usunąć swoje konto, potwierdź swoją tożsamość podając obecne hasło.",
+    "currentPassword": "Obecne hasło",
+    "passwordPlaceholder": "Wprowadź swoje obecne hasło",
+    "passwordRequired": "Podaj swoje obecne hasło aby potwierdzić usunięcie konta",
+    "finalConfirmTitle": "Ostateczne potwierdzenie",
+    "finalConfirmMessage": "Czy na pewno chcesz usunąć swoje konto? Ta operacja jest nieodwracalna. Wszystkie Twoje dane zostaną trwale usunięte.",
+    "confirmDelete": "Usuń konto",
+    "deleting": "Usuwanie...",
+    "deleteButton": "Usuń konto",
+    "accountDeleted": "Konto usunięte",
+    "accountDeletedMessage": "Twoje konto zostało pomyślnie usunięte.",
+    "deleteError": "Nie udało się usunąć konta",
+    "wrongPassword": "Podane hasło jest niepoprawne",
+    "requiresRecentLogin": "Ze względów bezpieczeństwa musisz się ponownie zalogować przed usunięciem konta"
+  },
+  "forgotPassword": {
+    "screenTitle": "Resetowanie hasła",
+    "title": "Resetowanie hasła",
+    "description": "Podaj adres email powiązany z Twoim kontem. Wyślemy Ci link do resetowania hasła.",
+    "emailLabel": "Adres email",
+    "emailPlaceholder": "Wprowadź swój adres email",
+    "emailRequired": "Podaj adres email",
+    "emailInvalid": "Podaj prawidłowy adres email",
+    "sending": "Wysyłanie...",
+    "sendButton": "Wyślij link resetujący",
+    "backToLogin": "Powrót do logowania",
+    "emailSent": "Link do resetowania hasła został wysłany na Twój adres email. Sprawdź swoją skrzynkę pocztową.",
+    "emailSentConfirmation": "Email został wysłany! Sprawdź swoją skrzynkę pocztową.",
+    "sendError": "Nie udało się wysłać emaila z resetem hasła",
+    "userNotFound": "Nie znaleziono użytkownika z tym adresem email",
+    "tooManyRequests": "Zbyt wiele prób. Spróbuj ponownie później"
+  },
+  "studentIdScreen": {
+    "title": "LEGITYMACJA",
+    "noApplicationTitle": "Brak zgłoszonego wniosku",
+    "applicationInfo": "Jeśli chcesz złożyć wniosek o e-legitymację, skontaktuj się z dziekanatem.",
+    "contactButton": "Skontaktuj się z dziekanatem"
   }
 }

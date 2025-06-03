@@ -4,7 +4,8 @@
     "error": "Error",
     "success": "Success",
     "ok": "OK",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "info": "Information"
   },
   "auth": {
     "loginTitle": "eWSEI Login",
@@ -28,7 +29,10 @@
     "errorInvalidDomain": "Registration is only possible for email addresses in the @microsoft.wsei.edu.pl domain.",
     "errorLoginGeneric": "An unexpected login error occurred.",
     "registrationSuccess": "Account created successfully! You can now log in.",
-    "errorRegistrationGeneric": "An unexpected registration error occurred."
+    "errorRegistrationGeneric": "An unexpected registration error occurred.",
+    "errorEmailInUse": "This email address is already in use.",
+    "errorWeakPassword": "The password is too weak.",
+    "errorInvalidEmail": "Invalid email format."
   },
   "navigation": {
     "tabStart": "Start",
@@ -41,12 +45,15 @@
     "headerUserProfile": "My Profile"
   },
   "homeScreen": {
-    "title": "START",
-    "welcomeMessage": "Welcome to the Virtual Dean's Office"
-  },
-  "studentIdScreen": {
-    "title": "ID CARD",
-    "dataPlaceholder": "ID card data will be here"
+    "welcome": "Welcome",
+    "defaultName": "Student",
+    "studentInfo": "Student Information",
+    "albumNumber": "Album Number",
+    "studyYear": "Year of Study",
+    "studyMode": "Mode of Study",
+    "notProvided": "not provided",
+    "schedule": "Class Schedule",
+    "scheduleSubtitle": "Applied Computer Science - Full-time Studies"
   },
   "moreScreen": {
     "accountSettings": "Account Settings",
@@ -54,9 +61,10 @@
     "helpContact": "Help & Contact",
     "aboutAuthors": "About Authors"
   },
-   "accountSettings": {
+  "accountSettings": {
     "title": "Account Settings",
     "editProfile": "User Profile",
+    "changePassword": "Change Password",
     "deleteAccount": "Delete Account",
     "logout": "Log Out",
     "logoutConfirmTitle": "Log Out",
@@ -64,7 +72,44 @@
     "deleteAccountConfirmTitle": "Delete Account",
     "deleteAccountConfirmMessage": "Are you sure you want to permanently delete your account? This action cannot be undone.",
     "deleteAccountSuccess": "Account deleted successfully.",
-    "deleteAccountError": "Failed to delete account."
+    "deleteAccountError": "Failed to delete account.",
+    "logoutError": "An error occurred while logging out."
+  },
+  "userProfile": {
+    "screenTitle": "My Profile",
+    "editButton": "Edit Profile",
+    "pleaseComplete": "please complete*",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "albumNumber": "Album Number",
+    "email": "E-mail",
+    "studyYear": "Year of Study",
+    "studyMode": "Mode of Study",
+    "studyModule": "Study Module",
+    "birthDate": "Date of Birth"
+  },
+  "editProfile": {
+    "screenTitle": "Edit Profile",
+    "addProfilePhoto": "Add profile photo",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "albumNumber": "Album Number",
+    "studyYear": "Year of Study",
+    "studyMode": "Mode of Study",
+    "studyModule": "Study Module",
+    "birthDate": "Date of Birth",
+    "firstNamePlaceholder": "Enter first name",
+    "lastNamePlaceholder": "Enter last name",
+    "albumNumberPlaceholder": "Enter album number",
+    "studyYearPlaceholder": "Enter year of study (e.g., 1, 2, 3)",
+    "studyModePlaceholder": "Enter mode of study (e.g., Full-time, Part-time)",
+    "studyModulePlaceholder": "Enter study module (if applicable)",
+    "birthDatePlaceholder": "Enter date of birth (e.g., DD.MM.YYYY)",
+    "saveButton": "Save Changes",
+    "savingButton": "Saving...",
+    "saveSuccess": "Profile updated successfully.",
+    "saveError": "Failed to save changes.",
+    "photoPickerError": "Error picking photo."
   },
   "appSettings": {
     "loadingSettings": "Loading settings...",
@@ -80,9 +125,11 @@
     "languagePolish": "Polish",
     "languageEnglish": "English",
     "errorSavingTheme": "Failed to save theme preference.",
-    "errorSavingLanguage": "Failed to change language."
+    "errorSavingLanguage": "Failed to change language.",
+    "errorLoadingTheme": "Failed to load theme settings."
   },
   "helpContact": {
+    "screenTitle": "Help & Contact",
     "cardTitle": "Contact Information",
     "address": "ul. Św. Filipa 17, 31-150 Krakow, Poland",
     "phoneCall": "Call: +48 12 431 18 90",
@@ -97,31 +144,66 @@
     "albumLabel": "Album Number:",
     "description": "The \"eWSEI\" application was created as part of a credit project at the University of Economics and Computer Science in Krakow."
   },
-    "userProfile": {
-    "screenTitle": "My Profile",
-    "addProfilePhoto": "Add profile photo",
-    "firstName": "First Name",
-    "firstNamePlaceholder": "Enter first name",
-    "lastName": "Last Name",
-    "lastNamePlaceholder": "Enter last name",
-    "albumNumber": "Album Number",
-    "albumNumberPlaceholder": "Enter album number",
-    "studyYear": "Year of Study",
-    "studyYearPlaceholder": "Enter year of study (e.g., 1, 2, 3)",
-    "studyMode": "Mode of Study",
-    "studyModePlaceholder": "Enter mode of study (e.g., Full-time, Part-time)",
-    "studyModule": "Study Module",
-    "studyModulePlaceholder": "Enter study module (if applicable)",
-    "birthDate": "Date of Birth",
-    "birthDatePlaceholder": "Enter date of birth (e.g., DD.MM.YYYY)",
-    "saveButton": "Save Changes",
-    "editButton": "Edit Profile",
-    "savingButton": "Saving...",
-    "saveSuccess": "Profile updated successfully.",
-    "saveError": "Failed to save changes.",
-    "photoPickerError": "Error picking photo."
+  "changePassword": {
+    "screenTitle": "Change Password",
+    "description": "To change your password, first confirm your current password, then enter a new one.",
+    "currentPassword": "Current Password",
+    "currentPasswordPlaceholder": "Enter current password",
+    "currentPasswordRequired": "Please enter your current password",
+    "newPassword": "New Password",
+    "newPasswordPlaceholder": "Enter new password",
+    "newPasswordRequired": "Please enter a new password",
+    "confirmPassword": "Confirm New Password",
+    "confirmPasswordPlaceholder": "Enter new password again",
+    "passwordTooShort": "New password must be at least 6 characters long",
+    "passwordsDoNotMatch": "New passwords do not match",
+    "changing": "Changing...",
+    "changeButton": "Change Password",
+    "passwordChanged": "Password changed successfully",
+    "changeError": "Failed to change password",
+    "wrongCurrentPassword": "Current password is incorrect",
+    "weakPassword": "New password is too weak"
   },
-  "splash": {
-    "appName": "eWSEI"
+  "deleteAccount": {
+    "screenTitle": "Delete Account",
+    "warning": "Warning",
+    "warningMessage": "Deleting your account is an irreversible operation. All your data, including student profile, preferences, and activity history will be permanently deleted.",
+    "description": "To delete your account, confirm your identity by entering your current password.",
+    "currentPassword": "Current Password",
+    "passwordPlaceholder": "Enter your current password",
+    "passwordRequired": "Please enter your current password to confirm account deletion",
+    "finalConfirmTitle": "Final Confirmation",
+    "finalConfirmMessage": "Are you sure you want to delete your account? This operation is irreversible. All your data will be permanently deleted.",
+    "confirmDelete": "Delete Account",
+    "deleting": "Deleting...",
+    "deleteButton": "Delete Account",
+    "accountDeleted": "Account Deleted",
+    "accountDeletedMessage": "Your account has been successfully deleted.",
+    "deleteError": "Failed to delete account",
+    "wrongPassword": "The password you entered is incorrect",
+    "requiresRecentLogin": "For security reasons, you must log in again before deleting your account"
+  },
+  "forgotPassword": {
+    "screenTitle": "Password Reset",
+    "title": "Password Reset",
+    "description": "Enter the email address associated with your account. We'll send you a password reset link.",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "Enter your email address",
+    "emailRequired": "Please enter an email address",
+    "emailInvalid": "Please enter a valid email address",
+    "sending": "Sending...",
+    "sendButton": "Send Reset Link",
+    "backToLogin": "Back to Login",
+    "emailSent": "A password reset link has been sent to your email address. Please check your inbox.",
+    "emailSentConfirmation": "Email sent! Please check your inbox.",
+    "sendError": "Failed to send password reset email",
+    "userNotFound": "No user found with this email address",
+    "tooManyRequests": "Too many attempts. Please try again later"
+  },
+  "studentIdScreen": {
+    "title": "ID CARD",
+    "noApplicationTitle": "No application submitted",
+    "applicationInfo": "If you want to submit an application for an e-ID card, please contact the dean's office.",
+    "contactButton": "Contact the dean's office"
   }
 }

@@ -8,6 +8,8 @@ import {
   signOut as firebaseSignOut,
   FirebaseAuthTypes,
 } from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
+import { UserProfileData } from '../../navigation/types';
 
 export function subscribeToAuthChanges(
   callback: (user: FirebaseAuthTypes.User | null) => void
@@ -16,10 +18,32 @@ export function subscribeToAuthChanges(
   return firebaseOnAuthStateChanged(authInstance, callback);
 }
 
-export async function registerUser(email: string, pass: string): Promise<FirebaseAuthTypes.UserCredential> {
+export async function registerUser(
+  email: string,
+  pass: string,
+  userProfileData: Partial<UserProfileData>
+): Promise<FirebaseAuthTypes.UserCredential> {
   const authInstance = getAuth(firebase.app());
   try {
     const userCredential = await createUserWithEmailAndPassword(authInstance, email, pass);
+    const user = userCredential.user;
+
+    if (userProfileData.firstName && userProfileData.lastName) {
+      await user.updateProfile({
+        displayName: `${userProfileData.firstName} ${userProfileData.lastName}`
+      });
+    }
+    await firestore()
+      .collection('studentProfiles')
+      .doc(user.uid)
+      .set({
+        ...userProfileData,
+        uid: user.uid,
+        createdAt: firestore.FieldValue.serverTimestamp(),
+        updatedAt: firestore.FieldValue.serverTimestamp(),
+      });
+
+    console.log('User registered and profile saved to Firestore:', user.uid);
     return userCredential;
   } catch (error) {
     console.error('Registration Error:', error);

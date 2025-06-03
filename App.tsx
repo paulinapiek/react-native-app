@@ -8,6 +8,7 @@ import { FirebaseAuthTypes } from '@react-native-firebase/auth';
 
 import SplashScreen from './src/auth/screens/SplashScreen';
 import UserProfileScreen from './src/auth/screens/user/UserProfileScreen';
+import EditProfileScreen from './src/auth/screens/user/EditProfileScreen';
 import { subscribeToAuthChanges } from './src/auth/services/authService';
 import AppNavigator from './src/navigation/AppNavigator';
 import AuthNavigator from './src/navigation/AuthNavigator';
@@ -15,6 +16,8 @@ import AccountSettingsScreen from './src/auth/screens/AccountSettingsScreen';
 import AppSettingsScreen from './src/auth/screens/AppSettingsScreen';
 import HelpContactScreen from './src/auth/screens/HelpContactScreen';
 import AboutAuthorsScreen from './src/auth/screens/AboutAuthorsScreen';
+import ChangePasswordScreen from './src/auth/screens/user/ChangePasswordScreen';
+import DeleteAccountScreen from './src/auth/screens/user/DeleteAccountScreen';
 import { RootStackParamList } from './src/navigation/types';
 import { useTranslation } from 'react-i18next';
 
@@ -97,11 +100,40 @@ const AppNavigationContent = () => {
               }}
             />
             <Stack.Screen
+              name="EditProfile"
+              component={EditProfileScreen}
+              options={{
+                headerShown: true,
+                headerStyle: {backgroundColor: currentAppThemeObject.headerBackground},
+                headerTintColor: currentAppThemeObject.headerText,
+              }}
+            />
+            <Stack.Screen
               name="AppSettings"
               component={AppSettingsScreen}
               options={{
                 headerShown: true,
                 title: t('navigation.headerAppSettings'),
+                headerStyle: {backgroundColor: currentAppThemeObject.headerBackground},
+                headerTintColor: currentAppThemeObject.headerText,
+              }}
+            />
+            <Stack.Screen
+              name="ChangePassword"
+              component={ChangePasswordScreen}
+              options={{
+                headerShown: true,
+                title: t('changePassword.screenTitle', 'Zmień hasło'),
+                headerStyle: {backgroundColor: currentAppThemeObject.headerBackground},
+                headerTintColor: currentAppThemeObject.headerText,
+              }}
+            />
+            <Stack.Screen
+              name="DeleteAccount"
+              component={DeleteAccountScreen}
+              options={{
+                headerShown: true,
+                title: t('deleteAccount.screenTitle', 'Usuń konto'),
                 headerStyle: {backgroundColor: currentAppThemeObject.headerBackground},
                 headerTintColor: currentAppThemeObject.headerText,
               }}

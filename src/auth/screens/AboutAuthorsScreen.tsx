@@ -1,6 +1,6 @@
 // src/auth/screens/AboutAuthorsScreen.tsx
 import React from 'react';
-import { StyleSheet, Image, View as ReactNativeView } from 'react-native';
+import { StyleSheet, Image, View as ReactNativeView, ScrollView } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -19,49 +19,90 @@ const AboutAuthorsScreen = () => {
 
   return (
     <ThemedView style={styles.container}>
-      <ThemedCard style={styles.cardContent}>
-        <Image
-          source={authorImage}
-          style={[styles.authorImage, { borderColor: currentUITheme.primary }]}
-        />
-        <ThemedText variant="h3" style={[styles.header, { color: currentUITheme.secondaryText }]}>
-          {t('aboutAuthors.header')}
-        </ThemedText>
-
-        <ReactNativeView style={styles.infoSection}>
-          <ThemedText variant="label" style={{ color: currentUITheme.secondaryText }}>
-            {t('aboutAuthors.nameLabel')}
+      <ScrollView 
+        style={styles.scrollView}
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={true}
+        alwaysBounceVertical={false}
+      >
+        <ThemedCard style={styles.cardContent}>
+          <Image
+            source={authorImage}
+            style={[styles.authorImage, { borderColor: currentUITheme.primary }]}
+          />
+          <ThemedText variant="h3" style={[styles.header, { color: currentUITheme.secondaryText }]}>
+            {t('aboutAuthors.header')}
           </ThemedText>
-          <ThemedText variant="p" style={styles.value}>{authorName}</ThemedText>
-        </ReactNativeView>
 
-        <ReactNativeView style={styles.infoSection}>
-          <ThemedText variant="label" style={{ color: currentUITheme.secondaryText }}>
-            {t('aboutAuthors.albumLabel')}
+          <ReactNativeView style={styles.infoSection}>
+            <ThemedText variant="label" style={{ color: currentUITheme.secondaryText }}>
+              {t('aboutAuthors.nameLabel')}
+            </ThemedText>
+            <ThemedText variant="p" style={styles.value}>{authorName}</ThemedText>
+          </ReactNativeView>
+
+          <ReactNativeView style={styles.infoSection}>
+            <ThemedText variant="label" style={{ color: currentUITheme.secondaryText }}>
+              {t('aboutAuthors.albumLabel')}
+            </ThemedText>
+            <ThemedText variant="p" style={styles.value}>{albumNumber}</ThemedText>
+          </ReactNativeView>
+
+          <ThemedText variant="p" style={styles.description}>
+            {t('aboutAuthors.description')}
           </ThemedText>
-          <ThemedText variant="p" style={styles.value}>{albumNumber}</ThemedText>
-        </ReactNativeView>
-
-        <ThemedText variant="p" style={styles.description}>
-          {t('aboutAuthors.description')}
-        </ThemedText>
-      </ThemedCard>
+        </ThemedCard>
+      </ScrollView>
     </ThemedView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 20, alignItems: 'center', paddingTop: 30 },
+  container: {
+    flex: 1,
+  },
+  scrollView: {
+    flex: 1,
+  },
+  scrollContent: {
+    padding: 20,
+    alignItems: 'center',
+    paddingTop: 30,
+    paddingBottom: 50,
+    minHeight: '100%',
+  },
   cardContent: {
     width: '100%',
     maxWidth: 500,
     alignItems: 'flex-start',
+    minHeight: 400,
   },
-  authorImage: { width: 120, height: 120, borderRadius: 60, alignSelf: 'center', marginBottom: 20, borderWidth: 3 },
-  header: { marginBottom: 25, alignSelf: 'center' },
-  infoSection: { marginBottom: 15, width: '100%' },
-  value: { fontWeight: '500'},
-  description: { lineHeight: 22, marginTop: 20, textAlign: 'left', width: '100%' },
+  authorImage: {
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+    alignSelf: 'center',
+    marginBottom: 20,
+    borderWidth: 3,
+  },
+  header: {
+    marginBottom: 25,
+    alignSelf: 'center',
+  },
+  infoSection: {
+    marginBottom: 15,
+    width: '100%',
+  },
+  value: {
+    fontWeight: '500',
+  },
+  description: {
+    lineHeight: 22,
+    marginTop: 20,
+    textAlign: 'left',
+    width: '100%',
+    marginBottom: 30,
+  },
 });
 
 export default AboutAuthorsScreen;

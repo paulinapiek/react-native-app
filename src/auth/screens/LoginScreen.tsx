@@ -95,6 +95,12 @@ const LoginScreen = ({ navigation }: Props) => {
         style={styles.loginButton}
       />
       <ThemedButton
+        title={t('auth.forgotPassword', 'Zapomniałem hasła')}
+        onPress={() => navigation.navigate('ForgotPassword')}
+        type="link"
+        style={styles.forgotPasswordButton}
+      />
+      <ThemedButton
         title={t('auth.noAccount')}
         onPress={() => navigation.navigate('Register')}
         type="link"
@@ -124,6 +130,9 @@ const styles = StyleSheet.create({
   },
   loginButton: {
     marginTop: 8,
+  },
+  forgotPasswordButton: {
+    marginTop: 12,
   },
   linkButton: {
     marginTop: 15,

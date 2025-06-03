@@ -24,7 +24,7 @@ const AppNavigator = () => {
         tabBarIcon: ({ focused, color, size }) => {
           let iconName = '';
           if (route.name === 'Start') iconName = 'home';
-          else if (route.name === 'Legitymacja') return <Image source={wseiLogoIcon} style={{ width: size * 1.2, height: size * 1.2, tintColor: focused ? currentUITheme.tabBarActive : color }} resizeMode="contain" />;
+          else if (route.name === 'StudentId') return <Image source={wseiLogoIcon} style={{ width: size * 1.2, height: size * 1.2, tintColor: focused ? currentUITheme.tabBarActive : color }} resizeMode="contain" />;
           else if (route.name === 'Więcej') iconName = 'ellipsis-h';
           return <Icon name={iconName} size={size} color={color} />;
         },
@@ -49,7 +49,7 @@ const AppNavigator = () => {
     >
       <Tab.Screen name="Start" component={HomeScreen} options={{ title: t('navigation.tabStart') }} />
       <Tab.Screen
-        name="Legitymacja"
+        name="StudentId"
         component={StudentIdScreen}
         options={{ title: t('navigation.tabStudentId') }}
       />

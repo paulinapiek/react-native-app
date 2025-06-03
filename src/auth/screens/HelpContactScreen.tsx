@@ -1,10 +1,9 @@
 // src/auth/screens/HelpContactScreen.tsx
 import React, { useState } from 'react';
-import { StyleSheet, Linking, Alert, View as ReactNativeView, Platform, ActivityIndicator, Pressable } from 'react-native';
+import { StyleSheet, Linking, Alert, View as ReactNativeView, Platform, ActivityIndicator, Pressable, ScrollView } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../../context/ThemeContext';
-
 import ThemedView from '../../components/ThemedView';
 import ThemedText from '../../components/ThemedText';
 import ThemedButton from '../../components/ThemedButton';
@@ -57,67 +56,74 @@ const HelpContactScreen = () => {
 
   return (
     <ThemedView style={styles.container}>
-      <ThemedCard style={styles.cardContent}>
-        <ThemedText variant="h3" style={styles.cardTitle}>
-          {t('helpContact.cardTitle')}
-        </ThemedText>
-
-        <ReactNativeView style={styles.infoItemStatic}>
-          <FontAwesome5 name="map-marker-alt" size={20} color={iconColor} style={styles.icon} />
-          <ThemedText variant="p" style={styles.infoText}>{wseiAddress}</ThemedText>
-        </ReactNativeView>
-
-        <Pressable
-          style={({ pressed }) => [
-            styles.infoItemClickable,
-            pressed && styles.linkPressed,
-          ]}
-          onPress={() => openLink(`tel:${wseiPhone}`)}
-          onPressIn={() => setIsPhoneLinkActive(true)}
-          onPressOut={() => setIsPhoneLinkActive(false)}
-        >
-          <FontAwesome5 name="phone-alt" size={20} color={isPhoneLinkActive ? activeLinkColor : iconColor} style={styles.icon} />
-          <ThemedText
-            variant="p"
-            style={[
-              styles.infoText,
-              { color: isPhoneLinkActive ? activeLinkColor : defaultLinkColor },
-            ]}
-          >
-            {t('helpContact.phoneCall')}
+      <ScrollView
+        style={styles.scrollView}
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={true}
+        alwaysBounceVertical={false}
+      >
+        <ThemedCard style={styles.cardContent}>
+          <ThemedText variant="h3" style={styles.cardTitle}>
+            {t('helpContact.cardTitle')}
           </ThemedText>
-        </Pressable>
 
-        <Pressable
-          style={({ pressed }) => [
-            styles.infoItemClickable,
-            pressed && styles.linkPressed,
-          ]}
-          onPress={() => openLink(`mailto:${wseiEmail}`)}
-          onPressIn={() => setIsEmailLinkActive(true)}
-          onPressOut={() => setIsEmailLinkActive(false)}
-        >
-          <FontAwesome5 name="envelope" size={20} color={isEmailLinkActive ? activeLinkColor : iconColor} style={styles.icon} />
-          <ThemedText
-            variant="p"
-            style={[
-              styles.infoText,
-              { color: isEmailLinkActive ? activeLinkColor : defaultLinkColor },
+          <ReactNativeView style={styles.infoItemStatic}>
+            <FontAwesome5 name="map-marker-alt" size={20} color={iconColor} style={styles.icon} />
+            <ThemedText variant="p" style={styles.infoText}>{wseiAddress}</ThemedText>
+          </ReactNativeView>
+
+          <Pressable
+            style={({ pressed }) => [
+              styles.infoItemClickable,
+              pressed && styles.linkPressed,
             ]}
+            onPress={() => openLink(`tel:${wseiPhone}`)}
+            onPressIn={() => setIsPhoneLinkActive(true)}
+            onPressOut={() => setIsPhoneLinkActive(false)}
           >
-            {t('helpContact.emailWrite')}
-          </ThemedText>
-        </Pressable>
+            <FontAwesome5 name="phone-alt" size={20} color={isPhoneLinkActive ? activeLinkColor : iconColor} style={styles.icon} />
+            <ThemedText
+              variant="p"
+              style={[
+                styles.infoText,
+                { color: isPhoneLinkActive ? activeLinkColor : defaultLinkColor },
+              ]}
+            >
+              {t('helpContact.phoneCall')}
+            </ThemedText>
+          </Pressable>
 
-        <ThemedButton
-          title={t('helpContact.goToGoogleMaps')}
-          onPress={() => openLink(googleMapsUrl)}
-          type="primary"
-          style={styles.mapsButtonBase}
-          leftIcon={<FontAwesome5 name="directions" size={18} color={currentUITheme.buttonText} />}
-          textStyle={{ marginLeft: 8 }}
-        />
-      </ThemedCard>
+          <Pressable
+            style={({ pressed }) => [
+              styles.infoItemClickable,
+              pressed && styles.linkPressed,
+            ]}
+            onPress={() => openLink(`mailto:${wseiEmail}`)}
+            onPressIn={() => setIsEmailLinkActive(true)}
+            onPressOut={() => setIsEmailLinkActive(false)}
+          >
+            <FontAwesome5 name="envelope" size={20} color={isEmailLinkActive ? activeLinkColor : iconColor} style={styles.icon} />
+            <ThemedText
+              variant="p"
+              style={[
+                styles.infoText,
+                { color: isEmailLinkActive ? activeLinkColor : defaultLinkColor },
+              ]}
+            >
+              {t('helpContact.emailWrite')}
+            </ThemedText>
+          </Pressable>
+
+          <ThemedButton
+            title={t('helpContact.goToGoogleMaps')}
+            onPress={() => openLink(googleMapsUrl)}
+            type="primary"
+            style={styles.mapsButtonBase}
+            leftIcon={<FontAwesome5 name="directions" size={18} color={currentUITheme.buttonText} />}
+            textStyle={{ marginLeft: 8 }}
+          />
+        </ThemedCard>
+      </ScrollView>
     </ThemedView>
   );
 };
@@ -125,9 +131,16 @@ const HelpContactScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  scrollView: {
+    flex: 1,
+  },
+  scrollContent: {
     padding: 20,
     alignItems: 'center',
     paddingTop: 20,
+    paddingBottom: 50,
+    minHeight: '100%',
   },
   loadingContainer: {
     flex: 1,
@@ -138,6 +151,7 @@ const styles = StyleSheet.create({
     width: '100%',
     maxWidth: 500,
     alignItems: 'flex-start',
+    minHeight: 350,
   },
   cardTitle: {
     marginBottom: 25,
@@ -178,6 +192,7 @@ const styles = StyleSheet.create({
   mapsButtonBase: {
     marginTop: 20,
     width: '100%',
+    marginBottom: 30,
   },
 });
 

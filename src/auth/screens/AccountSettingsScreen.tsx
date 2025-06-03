@@ -1,6 +1,6 @@
 // src/auth/screens/AccountSettingsScreen.tsx
 import React from 'react';
-import { StyleSheet, ScrollView, Alert, Pressable, ActivityIndicator } from 'react-native'; // Dodano ActivityIndicator
+import { StyleSheet, ScrollView, Alert, Pressable, ActivityIndicator } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { useTranslation } from 'react-i18next';
 import { useNavigation, CompositeNavigationProp } from '@react-navigation/native';
@@ -10,7 +10,7 @@ import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { useTheme } from '../../context/ThemeContext';
 import ThemedView from '../../components/ThemedView';
 import ThemedText from '../../components/ThemedText';
-import { AppTheme } from '../../theme/theme'; // Upewnij się, że typ AppTheme jest poprawnie eksportowany z theme.ts
+import { AppTheme } from '../../theme/theme';
 import { logoutUser } from '../services/authService';
 import { RootStackParamList, MainTabParamList } from '../../navigation/types';
 
@@ -29,7 +29,6 @@ interface OptionItemProps {
 
 const OptionItem = ({ title, iconName, onPress, theme, isDestructive = false }: OptionItemProps) => {
   const [isPressed, setIsPressed] = React.useState(false);
-  // Kolor tekstu i ikony zmienia się na podstawie stanu 'isPressed' i 'isDestructive'
   const dynamicTextColor = isDestructive ? theme.danger : (isPressed ? theme.primary : theme.text);
   const dynamicIconColor = isDestructive ? theme.danger : (isPressed ? theme.primary : theme.primary);
 
@@ -41,7 +40,6 @@ const OptionItem = ({ title, iconName, onPress, theme, isDestructive = false }: 
           backgroundColor: theme.card,
           borderBottomColor: theme.separator,
         },
-        // Opcjonalny styl dla stanu naciśnięcia, np. lekkie przyciemnienie tła
         pressed && { backgroundColor: theme.separator }
       ]}
       onPress={onPress}
@@ -73,7 +71,6 @@ const AccountSettingsScreen = () => {
           onPress: async () => {
             try {
               await logoutUser();
-              // Nawigacja jest obsługiwana przez onAuthStateChanged w App.tsx
             } catch (error) {
               console.error('Logout error:', error);
               Alert.alert(t('common.error', 'Błąd'), t('accountSettings.logoutError', 'Wystąpił błąd podczas wylogowywania.'));
@@ -86,31 +83,18 @@ const AccountSettingsScreen = () => {
   };
 
   const handleDeleteAccount = () => {
-    Alert.alert(
-      t('accountSettings.deleteAccountConfirmTitle', 'Usuwanie konta'),
-      t('accountSettings.deleteAccountConfirmMessage', 'Czy na pewno chcesz trwale usunąć swoje konto? Tej operacji nie można cofnąć.'),
-      [
-        { text: t('common.cancel', 'Anuluj'), style: 'cancel' },
-        {
-          text: t('common.ok', 'OK'),
-          style: 'destructive',
-          onPress: async () => {
-            console.log('TODO: Implement delete account functionality');
-            Alert.alert(t('common.info', 'Informacja'), 'Funkcja usuwania konta nie jest jeszcze zaimplementowana.');
-          },
-        },
-      ],
-      { cancelable: false }
-    );
+    navigation.navigate('DeleteAccount');
   };
 
   const handleNavigateToUserProfile = () => {
-    navigation.navigate('UserProfile'); // Upewnij się, że 'UserProfile' jest zdefiniowane w RootStackParamList
+    navigation.navigate('UserProfile');
+  };
+
+  const handleNavigateToChangePassword = () => {
+    navigation.navigate('ChangePassword');
   };
 
   if (isLoadingTheme || !currentUITheme) {
-    // Użyjemy currentUITheme?.primary dla koloru, aby uniknąć błędu, jeśli jest undefined na starcie
-    // lub stałego koloru fallback.
     const primaryColorFallback = currentUITheme?.primary || '#6dab3c';
     const backgroundColorFallback = currentUITheme?.background || '#f4f6f8';
     return (
@@ -127,6 +111,12 @@ const AccountSettingsScreen = () => {
           title={t('accountSettings.editProfile', 'Profil użytkownika')}
           iconName="user-circle"
           onPress={handleNavigateToUserProfile}
+          theme={currentUITheme}
+        />
+        <OptionItem
+          title={t('accountSettings.changePassword', 'Zmień hasło')}
+          iconName="key"
+          onPress={handleNavigateToChangePassword}
           theme={currentUITheme}
         />
         <OptionItem

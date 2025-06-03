@@ -2,7 +2,7 @@
 import React from 'react';
 import { Text, TextProps, TextStyle } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
-import { Theme as AppSpecificThemeType } from '../theme/theme';
+import { AppTheme as AppSpecificThemeType } from '../theme/theme';
 
 type TextVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'label' | 'caption';
 
@@ -28,6 +28,12 @@ const getVariantStyle = (variant: TextVariant | undefined, theme: AppSpecificThe
 
 const ThemedText: React.FC<ThemedTextProps> = ({ variant = 'p', style, children, ...rest }) => {
   const { theme: currentGlobalTheme } = useTheme();
+
+  if (!currentGlobalTheme) {
+    console.warn('[ThemedText] currentGlobalTheme is undefined. Rendering with default Text.');
+    return <Text style={style} {...rest}>{children}</Text>;
+  }
+
   const variantStyle = getVariantStyle(variant, currentGlobalTheme);
   return <Text style={[variantStyle, style]} {...rest}>{children}</Text>;
 };

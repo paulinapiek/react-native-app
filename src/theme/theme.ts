@@ -11,6 +11,7 @@ export const baseColors = {
   lightGray: '#e0e0e0',
   mediumGray: '#888888',
   darkGray: '#333333',
+  success: '#4caf50',
   shadowLight: 'rgba(0, 0, 0, 0.1)',
   shadowDark: 'rgba(255, 255, 255, 0.08)',
 };
@@ -26,6 +27,8 @@ export const lightTheme = {
   secondary: baseColors.secondary,
   accent: baseColors.accent,
   danger: baseColors.danger,
+  success: '#4caf50',
+  successBackground: '#e8f5e8',
   buttonText: baseColors.white,
   headerBackground: baseColors.primary,
   headerText: baseColors.white,
@@ -48,6 +51,8 @@ export const darkTheme = {
   secondary: '#5a6f80',
   accent: baseColors.accent,
   danger: baseColors.danger,
+  success: '#66bb6a',
+  successBackground: '#1b5e20',
   buttonText: baseColors.white,
   headerBackground: '#1f1f1f',
   headerText: baseColors.white,
@@ -66,3 +71,4 @@ export const getGlobalStyles = (theme: AppTheme) => StyleSheet.create({
   text: { color: theme.text, fontSize: 16 },
   title: { color: theme.text, fontSize: 24, fontWeight: 'bold' },
 });
+
